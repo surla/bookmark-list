@@ -13,4 +13,8 @@ class UsersController < ApplicationController
     @user.save
     erb :'/users/index'
   end
+
+  get '/login' do
+    erb :'/users/login'
+  end
 end
