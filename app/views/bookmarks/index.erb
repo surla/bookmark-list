@@ -1,1 +1,11 @@
 <h1>List of Bookmarks</h1>
+
+<% @bookmarks.each do |bookmark| %>
+  <div>
+    <p>
+      <a href="http://www.<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a><br>
+      <%= bookmark.description %><br>
+      <%= bookmark.url %>
+    </p>
+  </div>
+<% end %>
