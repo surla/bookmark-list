@@ -20,4 +20,14 @@ class BookmarksController < ApplicationController
     erb :'/bookmarks/show'
   end
 
+  get '/bookmarks/:id/edit' do
+    @bookmark = Bookmark.find_by_id(params[:id])
+    erb :'/bookmarks/edit'
+  end
+
+  patch '/bookmarks/:id' do
+    @bookmark = Bookmark.find_by_id(params[:id])
+    @bookmark.update(url: params[:url], title: params[:title], description: params[:description])
+    redirect "/bookmarks/#{@bookmark.id}"
+  end
 end
