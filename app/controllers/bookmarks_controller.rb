@@ -14,4 +14,10 @@ class BookmarksController < ApplicationController
     @bookmark.save
     redirect '/bookmarks'
   end
+
+  get '/bookmarks/:id' do
+    @bookmark = Bookmark.find_by_id(params[:id])
+    erb :'/bookmarks/show'
+  end
+
 end
