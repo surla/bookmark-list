@@ -3,3 +3,8 @@
 <%= @bookmark.url %><br>
 <%= @bookmark.title %><br>
 <%= @bookmark.description %>
+
+<form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>

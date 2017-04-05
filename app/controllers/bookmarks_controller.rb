@@ -30,4 +30,10 @@ class BookmarksController < ApplicationController
     @bookmark.update(url: params[:url], title: params[:title], description: params[:description])
     redirect "/bookmarks/#{@bookmark.id}"
   end
+
+  delete '/bookmarks/:id/delete' do
+    @bookmark = Bookmark.find_by_id(params[:id])
+    @bookmark.delete
+    redirect '/bookmarks'
+  end
 end
