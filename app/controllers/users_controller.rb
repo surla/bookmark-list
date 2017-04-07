@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  get '/users/index' do
+  get '/users/' do
     if logged_in?
       @user = current_user
       erb :'/users/index'
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      redirect '/users/index'
+      redirect '/users/'
     else
       erb :'/users/signup'
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect '/users/index'
+      redirect '/users/'
     else
       erb :'/users/login'
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/users/index'
+      redirect '/users/'
     else
       redirect '/signup'
     end
