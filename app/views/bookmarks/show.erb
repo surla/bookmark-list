@@ -2,8 +2,8 @@
 
 <%= @bookmark.url %><br>
 <%= @bookmark.title %><br>
-<%= @bookmark.description %>
-
+<%= @bookmark.description %><br>
+<%= @bookmark.created_at.strftime("%B %d, %Y") %><br>
 <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">

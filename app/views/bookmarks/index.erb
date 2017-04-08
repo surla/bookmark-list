@@ -1,13 +1,14 @@
 <h1>List of Bookmarks</h1>
 
-<a href="/users/">Home</a>
+<a href="/users">Home</a>
 
 <% @bookmarks.each do |bookmark| %>
   <div>
     <p>
       <a href="http://www.<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a><br>
       <%= bookmark.description %><br>
-      <%= bookmark.url %>
+      <%= bookmark.url %> <br>
+      <%= bookmark.created_at.strftime("%b %d %Y") %>
     </p>
   </div>
 <% end %>
