@@ -1,9 +1,11 @@
 <h1>Bookmark</h1>
 
+<a href="/bookmarks">View all bookmarks</a><br><br>
 <%= @bookmark.url %><br>
 <%= @bookmark.title %><br>
 <%= @bookmark.description %><br>
 <%= @bookmark.created_at.strftime("%B %d, %Y") %><br>
+<a href="/bookmarks/<%= @bookmark.id %>/edit">Edit</a><br>
 <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">

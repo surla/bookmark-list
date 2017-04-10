@@ -17,7 +17,9 @@
     <input type="text" name="category" list="categories" placeholder="Category">
       <datalist id="categories">
         <% @bookmarks.each do |bookmark| %>
-          <option value="Social Network"></option>
+          <% if bookmark.category %>
+            <option value="bookmark.category"></option>
+          <% end %>
         <% end %>
       </datalist>
   </p>

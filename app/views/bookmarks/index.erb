@@ -8,7 +8,8 @@
       <a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a><br>
       <%= bookmark.description %><br>
       <%= bookmark.url %> <br>
-      <%= bookmark.created_at.strftime("%b %d %Y") %>
+      <%= bookmark.created_at.strftime("%b %d %Y") %><br>
+      <a href="/bookmarks/<%= bookmark.id %>">View</a>
     </p>
   </div>
 <% end %>

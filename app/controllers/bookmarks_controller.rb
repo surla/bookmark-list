@@ -6,6 +6,7 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/new' do
+    @bookmarks = Bookmark.all
     erb :'/bookmarks/new'
   end
 
@@ -21,8 +22,12 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/:id/edit' do
-    @bookmark = Bookmark.find_by_id(params[:id])
-    erb :'/bookmarks/edit'
+    if session[:user_id] == current_user
+      @bookmark = Bookmark.find_by_id(params[:id])
+      erb :'/bookmarks/edit'
+    else
+      redirect '/login'
+    end
   end
 
   patch '/bookmarks/:id' do
