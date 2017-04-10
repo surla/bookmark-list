@@ -12,8 +12,13 @@ class BookmarksController < ApplicationController
 
   post '/bookmarks/new' do
     @bookmark = Bookmark.new(url: params[:url], title: params[:title], description: params[:description])
-    @bookmark.save
-    redirect '/bookmarks'
+    @bookmark.build_category(name: params[:category])
+    @bookmark.user = current_user
+    if @bookmark.save
+      redirect '/bookmarks'
+    else
+      redirect '/bookmarks/new'
+    end
   end
 
   get '/bookmarks/:id' do
