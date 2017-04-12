@@ -1,5 +1,15 @@
 <h3>Sign Up</h3>
 
+<% if @user.errors.any? %>
+  <div>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <form action="/signup" method="post">
     <p>
         <input type="text" name="email" placeholder="Email">

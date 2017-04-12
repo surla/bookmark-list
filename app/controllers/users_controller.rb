@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect '/users/'
     else
+      @user = User.new
       erb :'/users/signup'
     end
   end
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       erb :'/users/index'
     else
-      redirect '/login'
+      erb :'/users/signup'
     end
   end
 
@@ -39,9 +40,9 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/users'
+      erb :'/users/index', locals: {message: "Log in successful."}
     else
-      redirect '/signup'
+      erb :'/users/login'
     end
   end
 
