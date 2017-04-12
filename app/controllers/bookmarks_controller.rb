@@ -6,18 +6,17 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/new' do
-    @bookmarks = Bookmark.all
+    @bookmark = Bookmark.new
     erb :'/bookmarks/new'
   end
 
   post '/bookmarks/new' do
     @bookmark = Bookmark.new(url: params[:url], title: params[:title], description: params[:description])
-    @bookmark.build_category(name: params[:category])
     @bookmark.user = current_user
     if @bookmark.save
-      redirect '/bookmarks'
+      erb :'/bookmarks/show', locals: {message: "Successfully created bookmark."}
     else
-      redirect '/bookmarks/new'
+      erb :'/bookmarks/new'
     end
   end
 

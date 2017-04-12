@@ -1,5 +1,15 @@
 <h1>Add new bookmark</h1>
 
+<% if @bookmark.errors.any? %>
+  <div>
+    <ul>
+      <% @bookmark.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <form  action="/bookmarks/new" method="post">
   <p>
     <input type="text" name="url" id='url' placeholder="URL">
@@ -13,15 +23,5 @@
     <input type="text" name="description" id="description" placeholder="Description">
   </p>
 
-  <p>
-    <input type="text" name="category" list="categories" placeholder="Category">
-      <datalist id="categories">
-        <% @bookmarks.each do |bookmark| %>
-          <% if bookmark.category %>
-            <option value="bookmark.category"></option>
-          <% end %>
-        <% end %>
-      </datalist>
-  </p>
   <input type="submit">
 </form>

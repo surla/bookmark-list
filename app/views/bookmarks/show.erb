@@ -1,12 +1,25 @@
 <h1>Bookmark</h1>
 
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<div>
+  <ul>
+    <li><%= @bookmark.url %></li>
+    <li><%= @bookmark.title %></li>
+    <li><%= @bookmark.description %></li>
+    <li><%= @bookmark.created_at.strftime("%B %d, %Y") %></li>
+  </ul>
+</div>
+
+<div>
+  <a href="/bookmarks/<%= @bookmark.id %>/edit">Edit</a><br>
+
+  <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+</div>
+
 <a href="/bookmarks">View all bookmarks</a><br><br>
-<%= @bookmark.url %><br>
-<%= @bookmark.title %><br>
-<%= @bookmark.description %><br>
-<%= @bookmark.created_at.strftime("%B %d, %Y") %><br>
-<a href="/bookmarks/<%= @bookmark.id %>/edit">Edit</a><br>
-<form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
