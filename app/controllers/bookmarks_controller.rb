@@ -1,13 +1,21 @@
 class BookmarksController < ApplicationController
 
   get '/bookmarks' do
-    @bookmarks = Bookmark.all
-    erb :'/bookmarks/index'
+    if logged_in?
+      @bookmarks = Bookmark.all
+      erb :'/bookmarks/index'
+    else
+      redirect '/login'
+    end
   end
 
   get '/bookmarks/new' do
-    @bookmark = Bookmark.new
-    erb :'/bookmarks/new'
+    if logged_in?
+      @bookmark = Bookmark.new
+      erb :'/bookmarks/new'
+    else
+      redirect '/login'
+    end
   end
 
   post '/bookmarks/new' do
@@ -21,8 +29,12 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/:id' do
-    @bookmark = Bookmark.find_by_id(params[:id])
-    erb :'/bookmarks/show'
+    if logged_in?
+      @bookmark = Bookmark.find_by_id(params[:id])
+      erb :'/bookmarks/show'
+    else
+      redirect '/login'
+    end
   end
 
   get '/bookmarks/:id/edit' do
