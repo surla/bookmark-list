@@ -1,0 +1,20 @@
+<h1> <%= @category.name %> </h1>
+
+<div>
+  <% @category.bookmarks.each do |bookmark| %>
+    <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
+
+    <ul>
+      <li><%= bookmark.url %></li>
+      <li><%= bookmark.description %></li>
+      <li><%= bookmark.category.name %></li>
+      <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <a href="/bookmarks">View bookmarks</a><br>
+  <a href="/categories">View categories</a><br>
+  <a href="/logout">Logout</a>
+</div>

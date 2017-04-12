@@ -2,6 +2,6 @@
 
 <% @categories.each do |category| %>
   <div>
-    <p><%= category.name %></p>
+    <p><a href="/categories/<%= category.id %>"><%= category.name %></a></p>
   </div>
 <% end %>
