@@ -1,17 +1,23 @@
 <h3>Sign Up</h3>
 
 <form action="/signup" method="post">
-  <p>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email">
-  </p>
-  <p>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-  </p>
-  <p>
-    <label for="password_confirmation">Password Confirmation:</label>
-    <input type="password" name="password_confirmation" id="password_confirmation">
-  </p>
-  <input type="submit">
+    <p>
+        <input type="text" name="email" placeholder="Email">
+    </p>
+    <p>
+        <input type="password" name="password" placeholder="Password">
+    </p>
+    <p>
+        <input type="password" name="password_confirmation" placeholder="Confirm password">
+    </p>
+    <p>
+        <input type="submit">
+    </p>
 </form>
+
+<div>
+    <p>
+        Have an account?
+        <a href="/login">Log in</a>
+    </p>
+</div>
