@@ -7,4 +7,5 @@ end
 use Rack::MethodOverride
 use UsersController
 use BookmarksController
+use CategoriesController
 run ApplicationController
