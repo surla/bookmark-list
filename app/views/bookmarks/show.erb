@@ -9,6 +9,7 @@
     <li><%= @bookmark.url %></li>
     <li><%= @bookmark.title %></li>
     <li><%= @bookmark.description %></li>
+    <li>Category:<%= @bookmark.category.name %></li>
     <li><%= @bookmark.created_at.strftime("%B %d, %Y") %></li>
   </ul>
 </div>

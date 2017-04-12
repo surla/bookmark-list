@@ -21,6 +21,8 @@ class BookmarksController < ApplicationController
   post '/bookmarks/new' do
     @bookmark = Bookmark.new(url: params[:url], title: params[:title], description: params[:description])
     @bookmark.user = current_user
+    @bookmark.category = Category.find_or_create_by(name: params[:category])
+
     if @bookmark.save
       erb :'/bookmarks/show', locals: {message: "Successfully created bookmark."}
     else
