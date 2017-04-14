@@ -1,26 +1,29 @@
 <div class="row">
   <div class="text-center">
-
+    <h1>Bookmark</h1>
     <% unless locals.empty? %>
       <%= message %>
     <% end %>
+  </div>
 
-    <div class="bookmarks">
-      <h4><a href="http://<%= @bookmark.url %>" target="_blank"><%= @bookmark.title %></a></h4>
-      <ul>
-        <li><%= @bookmark.url %></li>
-        <li><%= @bookmark.description %></li>
-        <li>Category: <%= @bookmark.category.name %></li>
-        <li>Date created: <%= @bookmark.created_at.strftime("%b %d %Y") %></li>
+  <div class="bookmarks">
+
+    <div class="url-title">
+      <h4><a href="http://<%= @bookmark.url %>" target="_blank"><%= @bookmark.title %></a></h4> &mdash; <%= @bookmark.url %>
     </div>
 
-    <div>
-      <a href="/bookmarks/<%= @bookmark.id %>/edit" class="btn btn-primary btn-md">Edit</a>
+    <ul>
+      <li class="description"><%= @bookmark.description %></li>
+      <li>Category: <%= @bookmark.category.name %></li>
+      <li>Date created: <%= @bookmark.created_at.strftime("%b %d %Y") %></li>
+  </div>
 
-      <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn-primary btn-md">Delete</button>
-      </form>
-    </div>
+  <div class="text-center">
+    <a href="/bookmarks/<%= @bookmark.id %>/edit" class="btn btn-primary btn-md">Edit</a>
+
+    <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post" id="edit-form">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-primary btn-md">Delete</button>
+    </form>
   </div>
 </div>

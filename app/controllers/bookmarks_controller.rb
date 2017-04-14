@@ -44,11 +44,11 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/:id/edit' do
-    if session[:user_id] == current_user.id
-      @bookmark = Bookmark.find_by_id(params[:id])
+    @bookmark = Bookmark.find_by_id(params[:id])
+    if @bookmark.user.id == current_user.id
       erb :'/bookmarks/edit'
     else
-      redirect '/login'
+      redirect :'/bookmarks'
     end
   end
 
@@ -60,7 +60,11 @@ class BookmarksController < ApplicationController
 
   delete '/bookmarks/:id/delete' do
     @bookmark = Bookmark.find_by_id(params[:id])
-    @bookmark.delete
-    redirect '/bookmarks'
+    if @bookmark.user.id == current_user.id
+      @bookmark.delete
+      erb :'/bookmarks/index', locals: {message: "Successfully deleted bookmark."}
+    else
+      redirect :'/bookmarks'
+    end
   end
 end

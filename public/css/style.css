@@ -73,6 +73,10 @@ ul {
   word-break: normal;
 }
 
+#edit-form {
+  display: inline-block;
+}
+
 /*--- Bookmark list ---*/
 
 .url-title h4 {

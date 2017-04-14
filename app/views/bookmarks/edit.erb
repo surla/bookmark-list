@@ -1,15 +1,23 @@
-<h1>Edit bookmark</h1>
+<div class="text-center">
+  <h1>Edit bookmark</h1>
+</div>
+
 
 <form action="/bookmarks/<%= @bookmark.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
-  <label for="url">URL:</label>
-  <input type="text" name="url" value="<%= @bookmark.url %>">
-  <br>
-  <label for="title">Title:</label>
-  <input type="text" name="title" value="<%= @bookmark.title %>">
-  <br>
-  <label for="description">Description:</label>
-  <input type="text" name="description" value="<%= @bookmark.description %>">
-  <br>
-  <input type="submit">
+  <ul>
+    <li>
+      <label for="url">URL:</label>
+      <input type="text" name="url" value="<%= @bookmark.url %>">
+    </li>
+    <li>
+      <label for="title">Title:</label>
+      <input type="text" name="title" value="<%= @bookmark.title %>">
+    </li>
+    <li>
+      <label for="description">Description:</label>
+      <input type="text" name="description" value="<%= @bookmark.description %>">
+    </li>
+  </ul>
+  <p><input type="submit"></p>
 </form>
