@@ -14,7 +14,7 @@
 
   <body>
     <div class="color-bar"></div>
-    <div class="title text-center">
+    <div class="title">
         <h1>Bookmark List</h1>
     </div>
 
@@ -24,9 +24,7 @@
           <li role="presentation"><a href="/users">Home</a></li>
           <li role="presentation"><a href="/bookmarks">View bookmarks</a></li>
           <li role="presentation"><a href="/categories">View categories</a></li>
-          <li role="presentation" class="text-right"><a href="/logout">Log out</a></li>
-        <% else %>
-          <li class="text-right"><a href="/login">Log in</a></li>
+          <li role="presentation"><a href="/logout">Log out</a></li>
         <% end %>
       </ul>
     </nav>
@@ -34,7 +32,7 @@
             <%= yield %>
 
     <% if logged_in? %>
-      <footer class="text-center">
+      <footer class="col text-center">
         <p>Logged in as: <%= @user.email %></p>
       </footer>
     <% end %>

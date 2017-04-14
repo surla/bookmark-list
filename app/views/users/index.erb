@@ -1,6 +1,9 @@
-<% unless locals.empty? %>
-  <%= message %>
-<% end %>
+<div class="locals-msg">
+  <% unless locals.empty? %>
+    <%= message %>
+  <% end %>
+</div>
+
 
 <div class="bookmarks">
   <% @user.bookmarks.each do |bookmark| %>
@@ -9,8 +12,7 @@
     </div>
 
     <ul>
-
-      <li><%= bookmark.description %></li>
+      <li class="description"><%= bookmark.description %></li>
       <li><a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
       <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
       <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>

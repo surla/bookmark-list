@@ -1,50 +1,79 @@
-
+/* --- Layout styling --*/
 body {
-  font-family: 'Lato', sans-serif;
-  color:#3b3b3b;
+    font-family: 'Lato', sans-serif;
+    color: #3b3b3b;
 }
 
 nav {
-  padding-top: 5px;
-  padding-bottom: 20px;
-  letter-spacing: 1px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-left: 23px;
+    letter-spacing: 1px;
 }
 
+footer {
+    margin-top: 30px;
+}
+
+.locals-msg {
+    text-align: center;
+    color: #27ae60;
+}
+
+
 input {
-  width: 300px;
-  height: 50px;
-  padding-left: 15px;
+    width: 300px;
+    height: 50px;
+    padding-left: 15px;
 }
 
 row {
-  margin-top: 100px;
-  margin-bottom: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .title {
-  display: inline-block;
+    padding-left: 35px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.nav ul {
+    text-align: center;
 }
 
 .bookmarks {
-  padding-left: 100px;
+    padding-left: 300px;
 }
 
 .color-bar {
-  height: 18px;
-  background-color: #3498db;
+    height: 18px;
+    background-color: #3498db;
 }
+
+
+
+.heading h3 {
+  margin-bottom: 25px;
+}
+
+/*--- Bookmark list ---*/
 
 .url-title h4 {
-  display: inline-block;
-
-
-.bookmarks {
-  padding-left: 40px;
+    display: inline-block;
 }
-footer {
-  margin-top: 25px;
+.bookmarks {
+    padding-left: 40px;
+}
+
+.description {
+  padding-top: 2px;
+  padding-bottom: 10px;
 }
