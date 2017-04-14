@@ -3,7 +3,7 @@
 </div>
 
 
-<div>
+<div class="bookmarks">
   <% @category.bookmarks.each do |bookmark| %>
     <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
 
@@ -16,12 +16,3 @@
     </ul>
   <% end %>
 </div>
-
-<nav>
-  <ul>
-    <li><a href="/users">Home</a></li>
-    <li><a href="/bookmarks">View bookmarks</a><br></li>
-    <li><a href="/categories">View categories</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
-</nav>

@@ -9,7 +9,8 @@
       <ul>
         <li><%= bookmark.description %></li>
         <li><%= bookmark.url %></li>
-        <li><%= bookmark.created_at.strftime("%b %d %Y") %></li>
+        <li>Category: <%= bookmark.category.name %></li>
+        <li>Created on <%= bookmark.created_at.strftime("%b %d %Y") %></li>
         <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
       </ul>
     </div>

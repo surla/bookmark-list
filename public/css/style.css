@@ -37,3 +37,14 @@ ul {
   height: 18px;
   background-color: #3498db;
 }
+
+.url-title h4 {
+  display: inline-block;
+
+
+.bookmarks {
+  padding-left: 40px;
+}
+footer {
+  margin-top: 25px;
+}

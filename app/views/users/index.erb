@@ -4,12 +4,21 @@
 
 <div class="bookmarks">
   <% @user.bookmarks.each do |bookmark| %>
+    <div class="url-title">
+      <h4><a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a></h4> &mdash; <%= bookmark.url %>
+    </div>
 
-    <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
     <ul>
-      <li><%= bookmark.url %></li>
+
       <li><%= bookmark.description %></li>
+      <li><a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
       <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+      <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
     </ul>
   <% end %>
+</div>
+<div class="row">
+  <form  action="/bookmarks/new" class="text-center">
+    <button type="submit" class="btn btn-primary btn-md">Add new bookmark</button>
+  </form>
 </div>
