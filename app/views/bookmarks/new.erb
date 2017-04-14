@@ -12,7 +12,7 @@
       </div>
     <% end %>
 
-    <form  action="/bookmarks/new" method="post">
+    <form  action="/bookmarks/new" method="post" id="new-form">
       <p>
         <input type="text" name="url" id='url' placeholder="URL">
       </p>
@@ -22,7 +22,7 @@
       </p>
 
       <p>
-        <input type="text" name="description" id="description" placeholder="Description">
+        <textarea name="description" form="new-form" placeholder="Description"></textarea>
       </p>
 
       <p>
