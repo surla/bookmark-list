@@ -1,26 +1,15 @@
-
-<h1>Bookmark List</h1>
-<p><%= @user.email %> </p>
-
 <% unless locals.empty? %>
   <%= message %>
 <% end %>
 
-<% @user.bookmarks.each do |bookmark| %>
+<div class="bookmarks">
+  <% @user.bookmarks.each do |bookmark| %>
 
-  <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
-  <ul>
-    <li><%= bookmark.url %></li>
-    <li><%= bookmark.description %></li>
-    <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
-  </ul>
-<% end %>
-
-<nav>
-  <ul>
-    <li><a href="/users">Home</a></li>
-    <li><a href="/bookmarks">View bookmarks</a><br></li>
-    <li><a href="/categories">View categories</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
-</nav>
+    <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
+    <ul>
+      <li><%= bookmark.url %></li>
+      <li><%= bookmark.description %></li>
+      <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+    </ul>
+  <% end %>
+</div>

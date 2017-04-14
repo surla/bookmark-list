@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   get '/categories' do
     @categories = Category.all
+    @user = current_user
     erb :'/categories/index'
   end
 

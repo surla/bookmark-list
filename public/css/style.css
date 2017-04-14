@@ -7,8 +7,7 @@ body {
 nav {
   padding-top: 5px;
   padding-bottom: 20px;
-  background-color: #95a5a6;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
 }
 
 input {
@@ -19,8 +18,22 @@ input {
 
 row {
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 ul {
   list-style-type: none;
+}
+
+.title {
+  display: inline-block;
+}
+
+.bookmarks {
+  padding-left: 100px;
+}
+
+.color-bar {
+  height: 18px;
+  background-color: #3498db;
 }

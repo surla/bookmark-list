@@ -3,6 +3,7 @@ class BookmarksController < ApplicationController
   get '/bookmarks' do
     if logged_in?
       @bookmarks = Bookmark.all
+      @user = current_user
       erb :'/bookmarks/index'
     else
       redirect '/login'

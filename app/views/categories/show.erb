@@ -1,4 +1,7 @@
-<h1> <%= @category.name %> </h1>
+<div class="text-center">
+  <h1> <%= @category.name %> </h1>
+</div>
+
 
 <div>
   <% @category.bookmarks.each do |bookmark| %>
@@ -9,6 +12,7 @@
       <li><%= bookmark.description %></li>
       <li><%= bookmark.category.name %></li>
       <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+      <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
     </ul>
   <% end %>
 </div>

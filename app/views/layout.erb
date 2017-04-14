@@ -13,14 +13,31 @@
 
 
   <body>
-    <div class="row">
-      <nav class="text-center">
+    <div class="color-bar"></div>
+    <div class="title text-center">
         <h1>Bookmark List</h1>
-      </nav>
     </div>
 
+    <nav>
+      <ul class="nav nav-pills">
+        <% if logged_in? %>
+          <li role="presentation"><a href="/users">Home</a></li>
+          <li role="presentation"><a href="/bookmarks">View bookmark</a></li>
+          <li role="presentation"><a href="/categories">View categories</a></li>
+          <li role="presentation" class="text-right"><a href="/logout">Log out</a></li>
+        <% else %>
+          <li class="text-right"><a href="/login">Log in</a></li>
+        <% end %>
+      </ul>
+    </nav>
 
-    <%= yield %>
+            <%= yield %>
+
+    <% if logged_in? %>
+      <footer class="text-center">
+        <p>Logged in as: <%= @user.email %></p>
+      </footer>
+    <% end %>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

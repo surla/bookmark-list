@@ -1,30 +1,17 @@
-<h1>List of Bookmarks</h1>
-
-<a href="/users">Home</a>
-
-<% @bookmarks.each do |bookmark| %>
-  <div>
-    <p>
-      <a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a><br>
-      <%= bookmark.description %><br>
-      <%= bookmark.url %> <br>
-      <%= bookmark.created_at.strftime("%b %d %Y") %><br>
-      <a href="/bookmarks/<%= bookmark.id %>">View</a>
-    </p>
-  </div>
-<% end %>
-
-
-<div>
-  <p>
-    <a href="/bookmarks/new">New bookmark</a>
-  </p>
+<div class="text-center">
+  <h3>List of bookmarks</h3>
 </div>
 
-<nav>
-  <ul>
-    <li><a href="/users">Home</a></li>
-    <li><a href="/categories">View categories</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
-</nav>
+<div class="bookmarks">
+  <% @bookmarks.each do |bookmark| %>
+    <div>
+      <h4><a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a></h4>
+      <ul>
+        <li><%= bookmark.description %></li>
+        <li><%= bookmark.url %></li>
+        <li><%= bookmark.created_at.strftime("%b %d %Y") %></li>
+        <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
