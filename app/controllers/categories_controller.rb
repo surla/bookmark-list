@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   get '/categories/:id' do
+    @user = current_user
     @category = Category.find_by_id(params[:id])
     erb :'/categories/show'
   end

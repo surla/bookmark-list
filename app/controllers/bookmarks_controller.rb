@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   get '/bookmarks' do
     if logged_in?
       @bookmarks = Bookmark.all
-      @user = current_user
+      current_user
       erb :'/bookmarks/index'
     else
       redirect '/login'
@@ -12,6 +12,7 @@ class BookmarksController < ApplicationController
 
   get '/bookmarks/new' do
     if logged_in?
+      current_user
       @bookmark = Bookmark.new
       erb :'/bookmarks/new'
     else
@@ -20,6 +21,7 @@ class BookmarksController < ApplicationController
   end
 
   post '/bookmarks/new' do
+    current_user
     @bookmark = Bookmark.new(url: params[:url], title: params[:title], description: params[:description])
     @bookmark.user = current_user
     @bookmark.category = Category.find_or_create_by(name: params[:category])
