@@ -1,18 +1,19 @@
 <div class="text-center">
-  <h3>List of bookmarks</h3>
+  <h3>List of all bookmarks</h3>
 </div>
 
 <div class="bookmarks">
   <% @bookmarks.each do |bookmark| %>
-    <div>
-      <h4><a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a></h4>
-      <ul>
-        <li><%= bookmark.description %></li>
-        <li><%= bookmark.url %></li>
-        <li>Category: <%= bookmark.category.name %></li>
-        <li>Created on <%= bookmark.created_at.strftime("%b %d %Y") %></li>
-        <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
-      </ul>
+    <div class="url-title">
+      <h4><a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a></h4> &mdash; <%= bookmark.url %>
     </div>
+
+    <ul>
+      <li class="description"><%= bookmark.description %></li>
+      <li><a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
+      <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+      <li><%= bookmark.user.email %></li>
+      <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
+    </ul>
   <% end %>
 </div>

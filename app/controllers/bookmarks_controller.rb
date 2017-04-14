@@ -35,6 +35,7 @@ class BookmarksController < ApplicationController
 
   get '/bookmarks/:id' do
     if logged_in?
+      current_user
       @bookmark = Bookmark.find_by_id(params[:id])
       erb :'/bookmarks/show'
     else
@@ -43,7 +44,7 @@ class BookmarksController < ApplicationController
   end
 
   get '/bookmarks/:id/edit' do
-    if session[:user_id] == current_user
+    if session[:user_id] == current_user.id
       @bookmark = Bookmark.find_by_id(params[:id])
       erb :'/bookmarks/edit'
     else
