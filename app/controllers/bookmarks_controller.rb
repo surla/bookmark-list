@@ -62,7 +62,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find_by_id(params[:id])
     if @bookmark.user.id == current_user.id
       @bookmark.delete
-      erb :'/bookmarks/index', locals: {message: "Successfully deleted bookmark."}
+      redirect :'/users'
     else
       redirect :'/bookmarks'
     end
