@@ -5,13 +5,14 @@
 
 <div class="bookmarks">
   <% @category.bookmarks.each do |bookmark| %>
-    <h4><a href="http://<% bookmark.url %>"><%= bookmark.title %></a></h4>
+    <div class="url-title">
+      <h4><a href="http://<%= bookmark.url %>" target="_blank"><%= bookmark.title %></a></h4> &mdash; <%= bookmark.url %>
+    </div>
 
     <ul>
-      <li><%= bookmark.url %></li>
-      <li><%= bookmark.description %></li>
-      <li><%= bookmark.category.name %></li>
-      <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+      <li class="description"><%= bookmark.description %></li>
+      <li>Category: <a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
+      <li>Date created: <%= bookmark.created_at.strftime("%b %d %Y") %></li>
       <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
     </ul>
   <% end %>

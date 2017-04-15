@@ -13,8 +13,8 @@
 
     <ul>
       <li class="description"><%= bookmark.description %></li>
-      <li><a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
-      <li><%= bookmark.created_at.strftime("%B %d, %Y") %></li>
+      <li>Category: <a href="/categories/<%= bookmark.category_id %>"><%= bookmark.category.name %></a></li>
+      <li>Date created: <%= bookmark.created_at.strftime("%B %d, %Y") %></li>
       <li><a href="/bookmarks/<%= bookmark.id %>">View</a></li>
     </ul>
   <% end %>

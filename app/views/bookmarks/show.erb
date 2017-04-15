@@ -14,8 +14,9 @@
 
     <ul>
       <li class="description"><%= @bookmark.description %></li>
-      <li>Category: <%= @bookmark.category.name %></li>
+      <li>Category: <a href="/categories/<%= @bookmark.category_id %>"><%= @bookmark.category.name %></a></li>
       <li>Date created: <%= @bookmark.created_at.strftime("%b %d %Y") %></li>
+    </ul>
   </div>
 
   <div class="text-center">
