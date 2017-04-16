@@ -22,7 +22,7 @@
   <div class="text-center">
     <a href="/bookmarks/<%= @bookmark.id %>/edit" class="btn btn-primary btn-md">Edit</a>
 
-    <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post" id="edit-form">
+    <form action="/bookmarks/<%= @bookmark.id %>/delete" method="post" id="edit-btn">
       <input type="hidden" name="_method" value="delete">
       <button type="submit" class="btn btn-primary btn-md">Delete</button>
     </form>

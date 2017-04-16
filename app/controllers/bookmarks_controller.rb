@@ -14,6 +14,7 @@ class BookmarksController < ApplicationController
     if logged_in?
       current_user
       @bookmark = Bookmark.new
+      @categories = Category.all
       erb :'/bookmarks/new'
     else
       redirect '/login'
@@ -45,7 +46,9 @@ class BookmarksController < ApplicationController
 
   get '/bookmarks/:id/edit' do
     @bookmark = Bookmark.find_by_id(params[:id])
+    @categories = Category.all
     if @bookmark.user.id == current_user.id
+
       erb :'/bookmarks/edit'
     else
       redirect :'/bookmarks'

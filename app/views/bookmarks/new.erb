@@ -22,12 +22,19 @@
       </p>
 
       <p>
-        <textarea name="description" form="new-form" placeholder="Description"></textarea>
+        <textarea name="description" placeholder="Description"></textarea>
       </p>
 
       <p>
-        <input type="text" name="category" placeholder="Category">
+        <input type="text" name="category" placeholder="Category" list="categories">
+        <datalist id="categories">
+          <% @categories.each do |category| %>
+            <option><%= category.name %></option>
+          <% end %>
+        </datalist>
       </p>
+
+
 
       <input type="submit">
     </form>

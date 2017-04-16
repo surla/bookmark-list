@@ -20,6 +20,7 @@ footer {
     color: #27ae60;
 }
 
+/*--- Form styling ---*/
 
 input, textarea {
     width: 300px;
@@ -29,6 +30,8 @@ input, textarea {
 
 textarea {
   padding-top: 13px;
+  padding-right: 15px;
+  height: 68px;
 }
 
 row {
@@ -73,9 +76,10 @@ ul {
   word-break: normal;
 }
 
-#edit-form {
+#edit-btn {
   display: inline-block;
 }
+
 
 /*--- Bookmark list ---*/
 

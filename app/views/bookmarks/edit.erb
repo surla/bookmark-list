@@ -1,23 +1,45 @@
-<div class="text-center">
-  <h1>Edit bookmark</h1>
+<div class="row">
+  <div class="text-center">
+    <h1>Edit bookmark</h1>
+
+    <% if @bookmark.errors.any? %>
+      <div>
+        <ul>
+          <% @bookmark.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <br>
+    <form  action="/bookmarks/<%= @bookmark.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+      <p>
+        <label for="url">URL:</label><br>
+          <input type="text" name="url" value="<%= @bookmark.url %>">
+      </p>
+
+      <p>
+        <label for="title">Title:</label><br>
+          <input type="text" name="title" value="<%= @bookmark.title %>">
+      </p>
+
+      <p>
+        <label for="description">Description:</label><br>
+        <textarea name="description"><%= @bookmark.description %></textarea>
+      </p>
+
+      <p>
+        <label for="category">Category:</label><br>
+        <input type="text" name="category" value="<%= @bookmark.category.name %>" list="categories">
+        <datalist id="categories">
+          <% @categories.each do |category| %>
+            <option><%= category.name %></option>
+          <% end %>
+        </datalist>
+      </p>
+
+      <input type="submit">
+    </form>
+  </div>
 </div>
-
-
-<form action="/bookmarks/<%= @bookmark.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <ul>
-    <li>
-      <label for="url">URL:</label>
-      <input type="text" name="url" value="<%= @bookmark.url %>">
-    </li>
-    <li>
-      <label for="title">Title:</label>
-      <input type="text" name="title" value="<%= @bookmark.title %>">
-    </li>
-    <li>
-      <label for="description">Description:</label>
-      <input type="text" name="description" value="<%= @bookmark.description %>">
-    </li>
-  </ul>
-  <p><input type="submit"></p>
-</form>
