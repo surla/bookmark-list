@@ -26,7 +26,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(url: params[:url], title: params[:title], description: params[:description])
     @bookmark.user = current_user
     @bookmark.category = Category.find_or_create_by(name: params[:category])
-
     if @bookmark.save
       erb :'/bookmarks/show', locals: {message: "Successfully created bookmark."}
     else
@@ -48,7 +47,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find_by_id(params[:id])
     @categories = Category.all
     if @bookmark.user.id == current_user.id
-
       erb :'/bookmarks/edit'
     else
       redirect :'/bookmarks'
@@ -57,7 +55,9 @@ class BookmarksController < ApplicationController
 
   patch '/bookmarks/:id' do
     @bookmark = Bookmark.find_by_id(params[:id])
+    @bookmark.category = Category.find_or_create_by(name: params[:category])
     @bookmark.update(url: params[:url], title: params[:title], description: params[:description])
+
     redirect "/bookmarks/#{@bookmark.id}"
   end
 
