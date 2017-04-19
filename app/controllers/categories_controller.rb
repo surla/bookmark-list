@@ -11,4 +11,10 @@ class CategoriesController < ApplicationController
     @category = Category.find_by_id(params[:id])
     erb :'/categories/show'
   end
+
+  delete '/categories/:id/delete' do
+    @category = Category.find_by_id(params[:id])
+    @category.delete
+    redirect :'/categories'
+  end
 end
